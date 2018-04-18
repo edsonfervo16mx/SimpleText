@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SimpleText</title>
+    <link rel="stylesheet" href="assets/plugins/bulma/bulma.css">
+</head>
+<body>
+    <!--
+    <div id="app">
+        <a href="/">{{title}}</a>
+    </div>
+    -->
+    <!---->
+    <div id="app">
+        <div class="columns is-gapless has-text-centered is-multile is-mobile">
+            <div class="column">
+                <div class="notification is-info notification-radius">
+                    <router-link to="/">{{ title }}</router-link>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="tabs is-centered">
+                    <ul>
+                        <li v-for="level in priority">
+                            <router-link :to="{path : level.link}">{{ level.name}}</router-link>
+                        </li>
+                    </ul>
+                  </div>
+            </div>
+        </section>
+        <div class="container">
+            <router-view></router-view>
+        </div>
+    </div>
+    <!---->
+    <script src="assets/plugins/vuejs/vue.min.js"></script>
+    <script src="assets/plugins/vuejs/vue-router.js"></script>
+    <script src="core/routes.js"></script>
+</body>
+</html>
