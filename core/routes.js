@@ -1,12 +1,29 @@
 // 0. Si utilizas un sistema de empaquetamiento de módulos (por ejemplo, a través de vue-cli), importa Vue y VueRouter y luego ejecuta Vue.use(VueRouter).
 Vue.component('view-home', {
+  data:function () {
+    return {
+      count: 0,
+      notas: [
+        {caption: 'nota1', description: 'Esta es mi nota #1'},
+        {caption: 'nota2', description: 'Esta es mi nota #2'},
+        {caption: 'nota3', description: 'Esta es mi nota #3'},
+        {caption: 'nota4', description: 'Esta es mi nota #4'},
+        {caption: 'nota5', description: 'Esta es mi nota #5'},
+      ],
+    }
+  },
   template: `
   <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+    <div class="columns" v-for="text in notas">
     <div class="column">
       <div class="notification is-info">
         <button class="delete"></button>
-        Lorem
+          <h2 class="is-size-1">{{text.caption}}</h2>  
+          <p>{{text.description}}</p>
       </div>
+    </div>
+    </div>
     </div>
   </div>
   `,
@@ -57,7 +74,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/high', component: High },
   { path: '/medium', component: Medium },
-  { path: '/low', component: Low }
+  { path: '/low', component: Low },
 ]
 
 // 3. Crea una instancia del _router_ y pasa la opción `routes`
